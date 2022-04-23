@@ -1,3 +1,5 @@
+mod hecate_core;
+
 fn main() {
     println!("Hello, world!");
 }
@@ -7,14 +9,6 @@ fn main() {
 //     fn new() -> Self::Ids;
 //     fn toString() -> String;
 // }
-
-type AggregateId = String;
-type AggregateVersion = u64;
-
-trait EventStore<Event> {
-    fn write_event(aggregateId: AggregateId) -> AggregateVersion;
-    fn read_events(aggregateId: AggregateId) -> Vec<Event>;
-}
 
 struct AggregateRoot<Root> {
     agg: Option<Root>,
